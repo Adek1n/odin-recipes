@@ -23,15 +23,23 @@ body{
     margin:0px;
     font-family: Norse,sans-serif;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-image:radial-gradient( 
+    var(--secondary),
+    var(--tertiary));
 }
 
 
 
 .preloader{
+    z-index: 9999999;
+    position: absolute;
     perspective: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100vw;
     height: 100vh;
     background-image: radial-gradient(
     var(--primary),
@@ -57,8 +65,35 @@ body{
     text-align: center;
     font-size: 4em;
 }
+.header{
+    color: var(--quinary);
+    font-family: NorseBold,helvetica,sans-serif;
+    font-size: 4em;
+    margin-top: 30%;
+    text-align: center;
+    display: inline-block;
+    animation: glow 5s infinite;
+    text-shadow: 0px 0px 20px;
+    transform: rotateX(-30deg);
+}
+.header:hover{
+    color: var(--quarternary);
+    text-shadow: 0px 0px 20px ;
+}
 .hide{
     display: none;
+
+}
+.runes{
+    
+}
+
+@keyframes glow{
+    50%{
+        transform: scale(1.05) rotateX(30deg);
+        text-shadow: 0px 0px 10px ;
+    }
+
 }
 
 
