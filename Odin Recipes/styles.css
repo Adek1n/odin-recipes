@@ -1,0 +1,76 @@
+:root{
+    /* My Pallete */
+    --primary:#a58445;
+    --secondary:#e3b364;
+    --tertiary:#ac8c54;
+    --quarternary:#565454;
+    --quinary:#e5e2dd;
+
+}
+/* Viking Font */
+/* By: Joel Carrouche */
+@font-face{
+    font-family: Norse;
+    src:url("assets/font/Norse-KaWl.otf") format("opentype");
+}
+@font-face{
+    font-family: NorseBold;
+    src:url("assets/font//NorseBold-2Kge.otf") format("opentype");
+}
+body{
+    height:100vh;
+    width:100vw;
+    margin:0px;
+    font-family: Norse,sans-serif;
+    overflow: hidden;
+}
+
+
+
+.preloader{
+    perspective: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: radial-gradient(
+    var(--primary),
+    var(--tertiary)
+    );
+}
+.preloader .loading-icon{
+    
+    position: absolute;
+    height: 75vh;
+    
+}
+
+.infinite-loading{
+    animation: infiniteLoading 5s infinite linear;
+}
+.zoom-out{
+    animation: zoom 5s 1 linear forwards;
+}
+.preloader .preloader-message{
+    font-family: NorseBold;
+    color: var(--quinary);
+    text-align: center;
+    font-size: 4em;
+}
+.hide{
+    display: none;
+}
+
+
+@keyframes infiniteLoading{
+
+    to{
+        transform: rotateZ(360deg);
+        
+    }
+}
+@keyframes zoom{
+    to{
+        transform: rotateZ(360deg) translateZ(500px);
+    }
+}
