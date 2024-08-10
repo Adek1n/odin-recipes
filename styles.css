@@ -22,15 +22,22 @@ body{
     width:100vw;
     margin:0px;
     font-family: Norse,sans-serif;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    overflow: hidden    ;
     background-image:radial-gradient( 
     var(--secondary),
     var(--tertiary));
 }
+main{
+    
+    position: absolute;
+    height:100vh;
+    width:100vw;
+    margin:0px;
 
-
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
 
 .preloader{
     z-index: 9999999;
@@ -66,10 +73,11 @@ body{
     font-size: 4em;
 }
 .header{
+    position: absolute;
     color: var(--quinary);
     font-family: NorseBold,helvetica,sans-serif;
     font-size: 4em;
-    margin-top: 30%;
+    margin-top: 10%;
     text-align: center;
     display: inline-block;
     animation: glow 5s infinite;
@@ -79,15 +87,75 @@ body{
 .header:hover{
     color: var(--quarternary);
     text-shadow: 0px 0px 20px ;
+
+    animation-play-state: paused;
 }
+
+
 .hide{
-    display: none;
+    animation: dissapear 1s 1 linear forwards;
+
+}
+.title{
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 .runes{
-    
+
+    margin-bottom: 5%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateX(-15deg) rotateZ(-5deg);
+    animation: rotate 5s infinite;
+
+    animation-timing-function: linear;
+    width: 4vw;
+    height: 8vh;
+}
+.rune{
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform: rotateY(calc(var(--position)*(360/var(--quantity))*1deg)) translateZ(15vw);
+
+}
+.logo {
+    position: absolute;
+    font-family: NorseBold;
+    user-select: none;
+}
+.logo a{
+    text-decoration: none;
+    color: var(--quarternary);
+    display: flex;  
+    align-items: center;
+    font-size: 2em;
+}
+.logo img{
+    height: 7vh;
+}
+.model{
+    text-align: center;
+    transform: translateY(10vh);
+    margin-top: 20vh;
 }
 
+.model img{
+    height:60vh;
+
+}
+@keyframes rotate{
+    50%{
+        transform: perspective(1000px) rotateX(-15deg) rotateZ(5deg) rotateY(180deg);
+    }
+    100%{
+        transform: perspective(1000px) rotateX(-15deg) rotateZ(-5deg) rotateY(360deg);
+    }
+}
 @keyframes glow{
     50%{
         transform: scale(1.05) rotateX(30deg);
@@ -95,7 +163,12 @@ body{
     }
 
 }
-
+@keyframes dissapear{
+    to{
+        display: none;
+        opacity: 0;
+    }
+}
 
 @keyframes infiniteLoading{
 
@@ -106,6 +179,6 @@ body{
 }
 @keyframes zoom{
     to{
-        transform: rotateZ(360deg) translateZ(500px);
+        transform: translateZ(500px);
     }
 }
