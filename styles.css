@@ -116,7 +116,6 @@ main{
     height: 8vh;
 }
 .rune{
-
     position: absolute;
     height: 100%;
     width: 100%;
@@ -142,11 +141,26 @@ main{
     text-align: center;
     transform: translateY(10vh);
     margin-top: 20vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
-
-.model img{
+.model .gungnir{
+    transform: translateY(-20vh);
+    height: 60vh;
+    animation: float 5s infinite ease-in-out;
+}
+.model .eye{
+    height: 40vh;
+    transform: rotateZ(-15deg);
+    animation: throb 10s infinite ease-in-out;
+}
+.model .odin{
     height:60vh;
-
+}
+.timeStop{
+    animation-play-state: paused !important;
+    filter: blur(3px) grayscale(1);
 }
 @keyframes rotate{
     50%{
@@ -180,5 +194,17 @@ main{
 @keyframes zoom{
     to{
         transform: translateZ(500px);
+    }
+}
+@keyframes float{
+    50%{
+        transform: translateY(-30vh);
+    }
+}
+@keyframes throb{
+    
+    50%{
+        transform: scale(1.2) rotateZ(15deg);
+
     }
 }

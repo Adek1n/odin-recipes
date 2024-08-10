@@ -2,6 +2,7 @@
 const preloader=document.querySelector(".preloader")
 const preloaderIcon=preloader.children[1];
 const preloaderMessage=document.querySelector(".preloader-message")
+const models=document.querySelectorAll(".model");
 //JAVASCRIPT
 
 const textAnimation=setInterval(()=>{
@@ -28,3 +29,12 @@ window.addEventListener("load",()=>{
         Math.random()*4000
     )+2000);
 });
+models.forEach((model)=>{
+    model.addEventListener("mouseover",()=>{
+        console.log("e")
+        models.forEach((e)=>{
+            e.classList.add("timeStop");
+        })
+        model.classList.remove("timeStop");
+    })
+})
