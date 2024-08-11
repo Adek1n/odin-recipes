@@ -2,7 +2,9 @@
 const preloader=document.querySelector(".preloader")
 const preloaderIcon=preloader.children[1];
 const preloaderMessage=document.querySelector(".preloader-message")
-const models=document.querySelectorAll(".model");
+const models=document.querySelector(".model").children;
+const title=document.querySelector(".title");
+const filter=document.querySelector(".filter");
 //JAVASCRIPT
 
 const textAnimation=setInterval(()=>{
@@ -29,12 +31,20 @@ window.addEventListener("load",()=>{
         Math.random()*4000
     )+2000);
 });
-models.forEach((model)=>{
-    model.addEventListener("mouseover",()=>{
-        console.log("e")
-        models.forEach((e)=>{
-            e.classList.add("timeStop");
+Array.from(models).forEach((model)=>{
+    model.addEventListener("mouseover",(event)=>{
+        Array.from(models).forEach((otherModels)=>{
+            otherModels.classList.add("timeStop","grayscale");
+            title.classList.add("timeStop")
+            filter.classList.remove("hide");
         })
-        model.classList.remove("timeStop");
+        event.target.classList.remove("timeStop","grayscale");
+    })
+    model.addEventListener("mouseout",()=>{
+        Array.from(models).forEach((otherModels)=>{
+            otherModels.classList.remove("timeStop","grayscale");
+            title.classList.remove("timeStop");
+            filter.classList.add("hide");
+        })
     })
 })

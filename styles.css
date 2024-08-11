@@ -83,6 +83,7 @@ main{
     animation: glow 5s infinite;
     text-shadow: 0px 0px 20px;
     transform: rotateX(-30deg);
+    animation-play-state: inherit;
 }
 .header:hover{
     color: var(--quarternary);
@@ -104,29 +105,30 @@ main{
 
 }
 .runes{
-
     margin-bottom: 5%;
     position: absolute;
     transform-style: preserve-3d;
-    transform: perspective(1000px) rotateX(-15deg) rotateZ(-5deg);
+    perspective: 1000px;
+    transform:rotateX(-15deg) rotateZ(-5deg);
     animation: rotate 5s infinite;
-
     animation-timing-function: linear;
     width: 4vw;
     height: 8vh;
+    animation-play-state: inherit;
 }
 .rune{
+
     position: absolute;
     height: 100%;
     width: 100%;
     transform: rotateY(calc(var(--position)*(360/var(--quantity))*1deg)) translateZ(15vw);
-
 }
 .logo {
     position: absolute;
     font-family: NorseBold;
     user-select: none;
 }
+
 .logo a{
     text-decoration: none;
     color: var(--quarternary);
@@ -143,6 +145,7 @@ main{
     margin-top: 20vh;
     display: flex;
     flex-direction: row;
+    z-index: 5;
     justify-content: space-evenly;
 }
 .model .gungnir{
@@ -160,14 +163,36 @@ main{
 }
 .timeStop{
     animation-play-state: paused !important;
-    filter: blur(3px) grayscale(1);
+}
+.filter{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    padding: 0px;
+    margin: 0px;
+    z-index: 3;
+    backdrop-filter: blur(1px) grayscale(1);
+}
+.grayscale{
+    filter: blur(1px) grayscale(1);
+}
+.recipes{
+    perspective: 1000px;
+    animation-timing-function: linear;
+    width: 4vw;
+    height: 8vh;
+    position: absolute;
+    transform-style: preserve-3d;
+}
+.recipe{
+    
 }
 @keyframes rotate{
     50%{
-        transform: perspective(1000px) rotateX(-15deg) rotateZ(5deg) rotateY(180deg);
+        transform: rotateX(-15deg) rotateZ(5deg) rotateY(180deg);
     }
     100%{
-        transform: perspective(1000px) rotateX(-15deg) rotateZ(-5deg) rotateY(360deg);
+        transform: rotateX(-15deg) rotateZ(-5deg) rotateY(360deg);
     }
 }
 @keyframes glow{
